@@ -22,6 +22,7 @@ int main(int argc, char **argv)
 
     std::string imagePath = argv[1];
     std::string action = argv[2];
+    std::string changed_image_path = argv[3];
 
     if (argv[2] == "--help" || argv[2] == "-h"){        
         std::cout << "usage:" << argv[0] << " <image path> <action>" << std::endl;
@@ -87,6 +88,7 @@ int main(int argc, char **argv)
         std::cout << "Error: Unknown action." << std::endl;
         return -1;
     }
+    cv::imwrite(changed_image_path, changed_image);
 
     cv::waitKey(0);
     cv::destroyAllWindows();
